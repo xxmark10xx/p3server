@@ -14,3 +14,5 @@ db.on('error', (err) => {
 });
 
 module.exports.User = require('./user');
+module.exports.Chatroom = require('./chatroom')
+module.exports.Messages = require('./message')

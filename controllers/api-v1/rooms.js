@@ -1,13 +1,33 @@
 const router = require("express").Router()
 const db = require('../../models')
 
+
 //GET /rooms - view all rooms
 router.get('/',(req,res)=>{
     res.send(`trying to get all rooms`)
 })
 //POST /rooms - create a new rooms
-router.post('/',(req,res)=>{
-    res.send(`trying to create a room`)
+router.post('/',async (req,res)=>{
+    try {
+        const roomCheck = await db.Chatroom.findOne({
+            name: req.body.name
+        })
+        if(roomCheck) return res.status(409).json({msg: "a room with that name already exists!"})
+
+        const newRoom = await db.Chatroom.create({
+            name: req.body.name,
+            description: req.body.description
+        })
+
+        res.json({
+            msg: "created a new room!",
+            room: newRoom
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(503).json({msg: 'oops server burning down'})
+    }
+    // res.send(`trying to create a room`)
 })
 //GET /rooms/:roomId - view specific room
 router.get('/:roomId',(req,res)=>{
