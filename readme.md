@@ -5,6 +5,7 @@ Andy
 # P3 Concept
 - We would like to create a discord/slack 'jr' clone utilizing socket.io
 - Users can create an account and start chatting in the main 'timeline' or opt to create a new room for more private/focused chatting.
+- [click for front end sibling of app](https://github.com/romanprotoliuk/p3-client)
 
 # Technologies Used
 - javascript
@@ -14,6 +15,9 @@ Andy
 - mongodb
 - mongoose
 - Material UI
+
+# DB Diagram
+![diagram](./Untitled%20Diagram.drawio.png)
 
 # User Stories
 - as a user i want to create an account to start chatting
