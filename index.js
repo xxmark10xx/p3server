@@ -24,5 +24,8 @@ app.get('/', (req, res) => {
 
 // controllers
 app.use('/api-v1/users', require('./controllers/api-v1/users'))
+app.use('/api-v1/profile', require('./controllers/api-v1/profile'))
+app.use('/api-v1/rooms', require('./controllers/api-v1/rooms'))
+app.use('/api-v1/timeline', require('./controllers/api-v1/timeline'))
 
 app.listen(PORT, () => console.log(`listening to the smooth sounds of port ${PORT} in the morning 🌊`))
