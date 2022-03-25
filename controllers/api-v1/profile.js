@@ -12,12 +12,12 @@ router.get("/:id", (req, res) => {
 })
 
 // PUT -- /profile/:id update personal
-router.get("/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     res.send("Updating the user")
 })
 
 // DELETE -- /profile/:id
-router.get("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     res.send("Deleting the user")
 })
 
