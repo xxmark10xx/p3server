@@ -18,14 +18,14 @@ const myMiddleWare = (req, res, next) => {
 
 app.use(myMiddleWare)
 
-app.get('/', (req, res) => {
-  res.json({ msg: 'welcome to the user app 👋' })
-})
-
 // controllers
 app.use('/api-v1/users', require('./controllers/api-v1/users'))
 app.use('/api-v1/profile', require('./controllers/api-v1/profile'))
 app.use('/api-v1/rooms', require('./controllers/api-v1/rooms'))
 app.use('/api-v1/timeline', require('./controllers/api-v1/timeline'))
+
+app.get('/', (req, res) => {
+  res.json({ msg: 'welcome to the user app 👋' })
+})
 
 app.listen(PORT, () => console.log(`listening to the smooth sounds of port ${PORT} in the morning 🌊`))
