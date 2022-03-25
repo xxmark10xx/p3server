@@ -11,4 +11,4 @@ const ChatroomSchema = mongoose.Schema({
   }]
 },{timestamps: true})
 
-module.exports = mongoose.model('Chatroom', UserSchema)
+module.exports = mongoose.model('Chatroom', ChatroomSchema)

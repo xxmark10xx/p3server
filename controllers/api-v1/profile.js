@@ -5,6 +5,15 @@ const db = require("../../models")
 router.get("/", async (req, res) => {
     // we are going to have to display the avatar, the username, the name, and the bio of the users
     try{
+        // find user by id 
+        const foundUser = await db.User.findById({
+            _id: req.params.id 
+        })
+        if(foundUser){
+            await db.User.find({
+                name: 
+            })
+        }
     }catch(err) {
         console.log(err)
     }

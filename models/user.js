@@ -7,9 +7,9 @@ const UserSchema = mongoose.Schema({
   password: String,
   online: Boolean,
   avatar: String,
-  chatrooms: [{
-    type: mongoose.Schema.Types.ObjectId, ref: 'Chatroom'
-  }],
+  // chatrooms: [{
+  //   type: mongoose.Schema.Types.ObjectId, ref: 'Chatroom'
+  // }],
   messages: [{
     type: mongoose.Schema.Types.ObjectId, ref: 'Message'
   }]
