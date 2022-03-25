@@ -5,7 +5,6 @@ const db = require("../../models")
 router.get("/", async (req, res) => {
     // we are going to have to display the avatar, the username, the name, and the bio of the users
     try{
-
     }catch(err) {
         console.log(err)
     }
