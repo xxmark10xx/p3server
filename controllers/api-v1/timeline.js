@@ -18,7 +18,7 @@ router.post('/',async (req,res)=>{
 		})
 	} catch (error) {
 		console.log(error)
-		res.status(503).json({msg: "servers on fire"})
+		res.status(503).json({msg: "servers on fire"}) 
 	}
 	res.json({msg: 'created a room'})
 })
