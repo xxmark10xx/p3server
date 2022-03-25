@@ -2,8 +2,13 @@ const router = require("express").Router()
 const db = require("../../models")
 
 // GET -- /profile display user profile
-router.get("/", (req, res) => {
-    res.send("Hello from profile")
+router.get("/", async (req, res) => {
+    // we are going to have to display the avatar, the username, the name, and the bio of the users
+    try{
+
+    }catch(err) {
+        console.log(err)
+    }
 })
 
 // GET -- /profile/:id displays specific user 
