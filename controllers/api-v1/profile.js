@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
         })
         if(foundUser){
             await db.User.find({
-                name: 
+                
             })
         }
     }catch(err) {
