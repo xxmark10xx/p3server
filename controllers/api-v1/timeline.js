@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 	const messages = await db.Messages.find({
 		id: chatroom.messages
 	})
-	res.json({ msg: `${messages}` });
+	res.json({messages});
 });
 //POST /timeline - this route is meant to create THE ONE party chat room for all users to chat in
 // router.post('/',async (req,res)=>{
@@ -33,19 +33,22 @@ router.post('/addmessage', requiresToken, async (req, res) => {
 	try {
 		//get current user
 		let user = res.locals.user
-		let input = req.body.content
+		//create new message with the content from on-page form and author as currentuser
 		let newMessage = await db.Messages.create({
 			content: req.body.content,
-			author: res.locals.user
+			author: user
 		})
 		let chatroom = await db.Chatroom.findOne({})
+		//add the new message to the chatroom
 		chatroom.messages.push(newMessage)
+		//add the new message to the user
 		user.messages.push(newMessage)
 		await user.save()
 		await chatroom.save()
 		res.json({ 
 			msg: `user ${user.name} is trying to add a new message`, 
-			content: `${input}`
+			content: `${newMessage.content}`,
+			user: {user}
 		});
 	} catch (error) {
 		console.log(error)
