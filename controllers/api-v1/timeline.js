@@ -2,14 +2,17 @@ const router = require('express').Router();
 const db = require('../../models');
 const requiresToken = require('../requiresToken')
 
-// GET /timeline -> view main timeline chatroom
+// GET /timeline -> view main timeline chatroom messages
 router.get('/', async (req, res) => {
+	//get the chatroom
 	const chatroom = await db.Chatroom.findOne()
+	//get all messages within the chatroom
 	const messages = await db.Messages.find({
 		id: chatroom.messages
 	})
-	res.json({ msg: `${messages}` });
+	res.json({messages});
 });
+
 //POST /timeline - this route is meant to create THE ONE party chat room for all users to chat in
 // router.post('/',async (req,res)=>{
 // 	try {
@@ -28,24 +31,27 @@ router.get('/', async (req, res) => {
 // 	res.json({msg: 'created a room'})
 // })
 
-// POST /timeline -> add a chat message to a user (***NEEDS TO BE ADDED TO TIMELINE AS WELL***)
+// POST /timeline
 router.post('/addmessage', requiresToken, async (req, res) => {
 	try {
 		//get current user
 		let user = res.locals.user
-		let input = req.body.content
+		//create new message with the content from on-page form and author as currentuser
 		let newMessage = await db.Messages.create({
 			content: req.body.content,
-			author: res.locals.user
+			author: user
 		})
 		let chatroom = await db.Chatroom.findOne({})
+		//add the new message to the chatroom
 		chatroom.messages.push(newMessage)
+		//add the new message to the user
 		user.messages.push(newMessage)
 		await user.save()
 		await chatroom.save()
 		res.json({ 
 			msg: `user ${user.name} is trying to add a new message`, 
-			content: `${input}`
+			content: `${newMessage.content}`,
+			user: {user}
 		});
 	} catch (error) {
 		console.log(error)
