@@ -30,8 +30,6 @@ Andy
 
 # MVP goals
 - chat app usable by many users at once
-- A user can make a new room 
-- access to different 'rooms'
 - edit user profile
 - delete user profile 
 - see other profiles 
@@ -40,6 +38,7 @@ Andy
 # Stretch Goals
 - ability to post something other than text (images, sound, etc)
 - differentiate between private/public rooms - auth lock'd rooms
+- access different chat rooms
 
 # Routes
 | Method | Path                        | Purpose                                           |
