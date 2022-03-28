@@ -29,7 +29,7 @@ router.get("/:id", async (req, res) => {
 
         // look up the id in the db
         const userInfo = await db.User.findById(userId)
-        console.log(userInfo.name)
+        // console.log(userInfo.name)
         res.json(userInfo)
         
     }catch(err) {
@@ -69,7 +69,7 @@ router.delete("/:id", (req, res) => {
     // find the user by id and delete them
     db.User.findByIdAndDelete(req.params.id)
         .then(() => {
-            res.status(204).json({ message: "it worked it! the bounty is deleted"})
+            res.status(204).json({ message: "it worked it! the user is deleted"})
         })
         .catch (err => {
             console.log(err)
