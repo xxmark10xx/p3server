@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 	//get all messages within the chatroom
 	const messages = await db.Messages.find({
 		id: chatroom.messages
-	})
+	}).populate('author')
 	res.json({messages});
 });
 
@@ -36,6 +36,7 @@ router.post('/addmessage', requiresToken, async (req, res) => {
 	try {
 		//get current user
 		let user = res.locals.user
+		console.log(req.body)
 		//create new message with the content from on-page form and author as currentuser
 		let newMessage = await db.Messages.create({
 			content: req.body.content,
