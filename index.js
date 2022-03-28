@@ -2,6 +2,8 @@ require('dotenv').config();
 require('./models');
 const express = require('express');
 const cors = require('cors');
+const multer = require('multer')
+const upload = multer()
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,6 +11,8 @@ const PORT = process.env.PORT || 3001;
 // middlewares
 app.use(cors());
 app.use(express.json());
+app.use(upload.array()); 
+app.use(express.static('public'));
 
 const myMiddleWare = (req, res, next) => {
 	console.log(`incoming request: ${req.method} - ${req.url}`);

@@ -29,7 +29,6 @@ router.get("/:id", async (req, res) => {
 
         // look up the id in the db
         const userInfo = await db.User.findById(userId)
-        console.log(userInfo.name)
         res.json(userInfo)
         
     }catch(err) {
