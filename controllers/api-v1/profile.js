@@ -68,7 +68,7 @@ router.delete("/:id", (req, res) => {
     // find the user by id and delete them
     db.User.findByIdAndDelete(req.params.id)
         .then(() => {
-            res.status(204).json({ message: "it worked it! the bounty is deleted"})
+            res.status(204).json({ message: "it worked it! the user is deleted"})
         })
         .catch (err => {
             console.log(err)
