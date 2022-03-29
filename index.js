@@ -69,6 +69,20 @@ io.on('connection', (socket) => {
 
 	socket.on('send message', (message) => {
 		socket.join(message);
-		console.log('this is message' + message);
+		console.log('this is message from server: ' + message);
 	});
+
+	// socket.on('new message', (newMessageRecieved) => {
+	// 	// saving a passed value that should carry
+	// 	let chat = newMessageRecieved.content;
+
+	// 	if (!chat.users) return console.log('chat.users not defined');
+
+	// 	chat.users.forEach((user) => {
+	// 		if (user.id == newMessageRecieved.sender._id) return;
+
+	// 		// "in" means inside that user's room, emit / send that message
+	// 		socket.in(user.id).emit('message recieved', newMessageRecieved);
+	// 	});
+	// });
 });
