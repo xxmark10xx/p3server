@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
 	// })
 
 	socket.on('send user data', (allData) => {
-		socket.broadcast.emit('revieved all data', allData);
+		socket.broadcast.emit('recieved all data', allData);
 	});
 });
 
