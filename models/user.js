@@ -6,7 +6,7 @@ const UserSchema = mongoose.Schema({
   username: String,
   password: String,
   online: Boolean,
-  avatar: String,
+  avatar: {type: String, default: `https://res.cloudinary.com/dtmyibw85/image/upload/v1648664128/defaultuser_rhnnd6.png`},
   chatrooms: [{
     type: mongoose.Schema.Types.ObjectId, ref: 'Chatroom'
   }],
