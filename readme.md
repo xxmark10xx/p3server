@@ -2,37 +2,51 @@ Roman
 Mark
 Andy
 
-# P3 Concept
-- We would like to create a discord/slack 'jr' clone utilizing socket.io
-- Users can create an account and start chatting in the main 'timeline' or opt to create a new room for more private/focused chatting.
+# Introduction
+- The MERN stack (MongoDB, Express, React, Node) is a great stack for building a lightweight chat client - very simple and easy to use.  This repo consists of the back-end for a fully functional chat app.  Our team has picked up a lot of new skills and concepts during the building of this app.  This project can be up and running on your local in just a few easy steps
 - [click for front end sibling of app](https://github.com/romanprotoliuk/p3-client)
 
+# Features
+- Authentication via jwt tokens
+- Global chat - broadcast messages to any other users who access the chatroom
+- Real-time chat - as soon as you send your message, all other users can view it!
+
 # Technologies Used
-- javascript
+- Javascript 
 - socket.io
-- react.js
-- express
-- mongodb
-- mongoose
+- Multer
+- cloudinary
+- React
+- Express
+- MongoDB w/mongoose
 - Material UI
 
 # DB Diagram
 ![diagram](./Untitled%20Diagram.drawio.png)
 
+# App Wireframes
+![landing page](./Untitled.png)
+![logged in view](./Untitled%202.png)
+
+# How To Install
+- Fork and clone this repo to your own machine (you will also need the front-end repo as well [found here](https://github.com/romanprotoliuk/p3-client))
+- Change directory to your recently cloned repo, run `npm i` to install dependences listed above in Technologies Used 
+- This application uses MongoDB as a database, so make sure you have that installed!
+- This application also relies on [Cloudinary](https://cloudinary.com/) for image hosting, so you will need to get a API key from them.
+- Create a .env file that will hold two variables:  `JWT_SECRET={YourSecret}` as well as `CLOUDINARY_URL={YourCloudinaryURL}`
+- Run this file with `node index.js` to spin your server up.
+- Your back end is now set up!
+
 # User Stories
 - as a user i want to create an account to start chatting
-- as a user i want to have different chat rooms to contribute to or read from
 - as a user i want to login in and log out of my account
 - as a user i want to be able to delete my account
-- as a user i want to have a feed / home that shows different posts.
 - as a user i want to have a profile where i could edit my name, profile picture, and the about me section
 - as a user i want to see a name, thumbnail of profile picture, and timestamp for each post
 
 # MVP goals
 - chat app usable by many users at once
 - edit user profile
-- delete user profile 
-- see other profiles 
 - live messages 
 
 # Stretch Goals
@@ -40,7 +54,7 @@ Andy
 - differentiate between private/public rooms - auth lock'd rooms
 - access different chat rooms
 
-# Routes
+# RESTful backend chart
 | Method | Path                        | Purpose                                           |
 |--------|-----------------------------|---------------------------------------------------|
 | GET    | `/`                         | landing / home                                    |
