@@ -13,6 +13,17 @@ router.get('/', async (req, res) => {
 	res.json({messages});
 });
 
+router.get('/20messages', async(req,res) =>{
+	const chatroom = await db.Chatroom.findOne()
+	const messages = await db.Messages.find({
+		id: chatroom
+	})
+	.limit(20)
+	.sort('createdAt')
+	.populate('author')
+	res.json({messages})
+})
+
 //POST /timeline - this route is meant to create THE ONE party chat room for all users to chat in
 // router.post('/',async (req,res)=>{
 // 	try {
