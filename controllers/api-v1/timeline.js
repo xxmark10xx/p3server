@@ -19,7 +19,7 @@ router.get('/20messages', async(req,res) =>{
 		id: chatroom
 	})
 	.limit(20)
-	.sort('createdAt')
+	.sort('-createdAt')
 	.populate('author')
 	res.json({messages})
 })

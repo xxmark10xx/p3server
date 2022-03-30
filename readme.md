@@ -19,6 +19,10 @@ Andy
 # DB Diagram
 ![diagram](./Untitled%20Diagram.drawio.png)
 
+# App Wireframes
+![landing page](./Untitled.png)
+![logged in view](./Untitled%202.png)
+
 # User Stories
 - as a user i want to create an account to start chatting
 - as a user i want to have different chat rooms to contribute to or read from
