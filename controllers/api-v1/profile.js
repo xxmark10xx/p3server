@@ -23,11 +23,11 @@ router.get("/", async (req, res) => {
 // GET -- /profile/:id displays specific user 
 router.get("/:id", async (req, res) => {
     try{
-        // get he id from the request params
+        // // get he id from the request params
         const userId = req.params.id
-        console.log(userId)
-
-        // look up the id in the db
+        // console.log(userId)
+        
+        // // look up the id in the db
         const userInfo = await db.User.findById(userId)
         res.json(userInfo)
         

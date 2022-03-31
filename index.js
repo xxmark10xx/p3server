@@ -14,14 +14,6 @@ const io = require("socket.io")(4004, {
 
 io.on("connection", socket => {
 	console.log(socket.id)
-	// socket.on('send-message', (string) => {
-	// 	console.log("testing socket log " + string)
-	// 	socket.emit("received-message", string)
-	// })
-	// socket.on("user-data", (data) => {
-	// 	console.log("testing user data", data)
-	// 	socket.emit("received-data", data)
-	// })
 
 	socket.on("send user data", (allData) => {
 		socket.broadcast.emit("recieved all data", allData)
@@ -34,8 +26,8 @@ const PORT = process.env.PORT || 3001;
 // middlewares
 app.use(cors());
 app.use(express.json());
-app.use(upload.array()); 
-app.use(express.static('public'));
+// this is for cloudinary
+app.use(express.static('uploads'));
 
 const myMiddleWare = (req, res, next) => {
 	// console.log(`incoming request: ${req.method} - ${req.url}`);
