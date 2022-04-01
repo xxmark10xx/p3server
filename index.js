@@ -2,23 +2,22 @@ require('dotenv').config();
 require('./models');
 const express = require('express');
 const cors = require('cors');
-const multer = require('multer')
-const upload = multer()
+const multer = require('multer');
+const upload = multer();
 // socket stuff
-const io = require("socket.io")(4004, {
+const io = require('socket.io')(4004, {
 	cors: {
-		origin: ["http://localhost:3000"]
+		origin: [ 'http://localhost:3000' ]
 	}
-})
+});
 
+io.on('connection', (socket) => {
+	console.log(socket.id);
 
-io.on("connection", socket => {
-	console.log(socket.id)
-
-	socket.on("send user data", (allData) => {
-		socket.broadcast.emit("recieved all data", allData)
-	})
-})
+	socket.on('send user data', (allData) => {
+		socket.broadcast.emit('recieved all data', allData);
+	});
+});
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -40,7 +39,6 @@ app.use(myMiddleWare);
 app.get('/', (req, res) => {
 	res.json({ msg: 'welcome to the user app 👋' });
 });
-
 
 // controllers
 app.use('/api-v1/users', require('./controllers/api-v1/users'));
