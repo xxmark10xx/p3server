@@ -48,6 +48,7 @@ router.put("/:id", async (req, res) => {
         const options = {
             new: true
         }
+        console.log(req.body)
         //find the user in the db and update it.
         const updatedUser = await db.User.findByIdAndUpdate({
             _id: userId

@@ -65,7 +65,8 @@ router.post('/login', async (req, res) => {
     name: foundUser.name,
     email: foundUser.email,
     id: foundUser.id,
-    avatar: foundUser.avatar
+    avatar: foundUser.avatar,
+    bio: foundUser.bio
   }
 
   // sign the jwt
